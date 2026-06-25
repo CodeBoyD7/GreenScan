@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { View, Text, ScrollView, StyleSheet, Animated, TouchableOpacity } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 import { GlassCard } from "../components/GlassCard";
 import { GradientText } from "../components/GradientText";
 import { FlameIcon, CheckIcon, FoodIcon, StarIcon, ArrowDownIcon, ArrowUpIcon, TrendingUpIcon, ClockIcon } from "../components/Icons";
@@ -46,7 +47,7 @@ export function DashboardScreen() {
     setTopMicrogreens(sorted);
   }, []);
 
-  useEffect(() => { loadData(); }, [loadData]);
+  useFocusEffect(useCallback(() => { loadData(); }, [loadData]));
 
   const maxDaily = Math.max(1, ...weeklyData.map(d => d.count));
   const dayLabels = weeklyData.map((d) => {

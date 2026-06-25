@@ -39,3 +39,13 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# screenshots (generated for demos)
+screenshots/
+
+# utility scripts (not part of the app)
+scripts/
+gen_icons.js
+generate_icon.py
+generate_icons.py
+*.log
